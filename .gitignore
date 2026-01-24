@@ -4,9 +4,12 @@
 
 # Downloads
 bric_video_downloads/
+bric_transcripts/
 
 # Secrets
 .env
+credentials.json
+token.json
 
 # Python
 __pycache__/
