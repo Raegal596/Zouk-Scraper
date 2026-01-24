@@ -1,0 +1,4 @@
+playwright
+yt-dlp
+openai-whisper
+python-dotenv

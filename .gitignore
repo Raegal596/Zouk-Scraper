@@ -1,0 +1,17 @@
+# Antigravity Artifacts
+*.html
+*.png
+
+# Downloads
+bric_video_downloads/
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# System
+.DS_Store
