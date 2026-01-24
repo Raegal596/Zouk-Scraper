@@ -36,9 +36,25 @@ def authenticate_google_drive():
             token.write(creds.to_json())
     return build('drive', 'v3', credentials=creds)
 
+def resolve_folder_id(service, folder_identifier):
+    # Try to find a folder by name
+    query = f"mimeType = 'application/vnd.google-apps.folder' and name = '{folder_identifier}' and trashed = false"
+    results = service.files().list(q=query, fields="files(id, name)").execute()
+    files = results.get('files', [])
+    
+    if files:
+        print(f"Found folder '{folder_identifier}' with ID: {files[0]['id']}")
+        return files[0]['id']
+    
+    # If not found by name, assume it is an ID
+    return folder_identifier
+
 def list_files_in_folder(service, folder_id):
+    # Resolve the ID first
+    actual_folder_id = resolve_folder_id(service, folder_id)
+    
     results = service.files().list(
-        q=f"'{folder_id}' in parents and mimeType contains 'video/' and trashed = false",
+        q=f"'{actual_folder_id}' in parents and mimeType contains 'video/' and trashed = false",
         pageSize=100,
         fields="nextPageToken, files(id, name)").execute()
     return results.get('files', [])
