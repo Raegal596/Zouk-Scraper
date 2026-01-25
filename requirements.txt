@@ -3,3 +3,11 @@ google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 python-dotenv
+fastapi
+uvicorn
+chromadb
+google-generativeai
+python-multipart
+pydantic-settings
+langchain
+langchain-google-genai
