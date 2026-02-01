@@ -73,12 +73,18 @@ function addMessage(text, type, sources = []) {
     const div = document.createElement('div');
     div.className = `message ${type}`;
 
-    // Markdown-like basic parsing (optional, mostly handling newlines)
-    const formattedText = text.replace(/\n/g, '<br>');
+    // Markdown parsing using marked.js
+    const formattedText = marked.parse(text);
 
     let sourceHtml = '';
     if (sources && sources.length > 0) {
-        sourceHtml = `<div class="sources">Sources: ${sources.join(', ')}</div>`;
+        sourceHtml = `
+        <details class="sources-dropdown">
+            <summary>View ${sources.length} Sources</summary>
+            <div class="sources-list">
+                ${sources.join('<br>')}
+            </div>
+        </details>`;
     }
 
     const avatarIcon = type === 'user' ? 'user' : 'bot';

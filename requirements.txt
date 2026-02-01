@@ -11,3 +11,8 @@ python-multipart
 pydantic-settings
 langchain
 langchain-google-genai
+langchain-google-genai
+pypdf
+docx2txt
+langchain-community
+google-genai

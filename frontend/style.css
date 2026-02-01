@@ -29,9 +29,11 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #374151;
   border-radius: 4px;
@@ -52,6 +54,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   background: var(--primary-gradient);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;
@@ -174,6 +177,47 @@ body {
   border-top-left-radius: 0.25rem;
 }
 
+/* Markdown Styles */
+.message-content p {
+  margin-bottom: 0.75rem;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-content ul,
+.message-content ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.message-content li {
+  margin-bottom: 0.25rem;
+}
+
+.message-content code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.message-content pre {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 0.75rem;
+}
+
+.message-content pre code {
+  background: transparent;
+  padding: 0;
+  color: #e5e7eb;
+}
+
 /* Input Area */
 .input-area {
   padding: 1.5rem;
@@ -206,12 +250,14 @@ textarea {
   padding: 0.75rem;
   font-size: 1rem;
   resize: none;
-  height: 56px; /* Initial height */
+  height: 56px;
+  /* Initial height */
   max-height: 200px;
   outline: none;
 }
 
-.send-btn, .upload-btn {
+.send-btn,
+.upload-btn {
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -224,7 +270,8 @@ textarea {
   justify-content: center;
 }
 
-.send-btn:hover, .upload-btn:hover {
+.send-btn:hover,
+.upload-btn:hover {
   background: var(--glass-bg);
   color: var(--text-main);
 }
@@ -240,8 +287,15 @@ textarea {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Sources */
@@ -250,5 +304,5 @@ textarea {
   color: var(--text-muted);
   margin-top: 0.5rem;
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
